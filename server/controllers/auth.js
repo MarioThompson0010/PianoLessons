@@ -1,5 +1,5 @@
 const db = require('../models');
-// const isAuthenticated = require('../config/middleware/isAuthenticated');
+const isAuthenticated = require('../config/middleware/isAuthenticated');
 const passport = require('../config/passport');
 
 // const login = async (req, res) => {
