@@ -9,7 +9,7 @@ passport.use(
   new LocalStrategy(
     // Our user will sign in using an email, rather than a 'username'
     {
-      usernameField: 'email',
+      usernameField: 'username',
     },
     async (email, password, done) => {
       // When a user tries to sign in this code runs
@@ -22,7 +22,6 @@ passport.use(
       });
 
       if (!user || !user.validPassword(password)) {
-        isloginSuccessful = true;
         return done(null, false, {
           message: 'Incorrect email or password.'
         });

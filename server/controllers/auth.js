@@ -9,10 +9,17 @@ const passport = require('../config/passport');
 module.exports = {
   signup: (req, res) => {
 
+    // passport.authenticate('local', {
+
+    //   successRedirect: '/',
+    //   failureRedirect: '/login',
+
+    // })(req, res);
+
+
     db.User.create(req.body)
       .then((user) => {
         res.json(user);
-        //res.redirect(307, '/loginAfterSignup'); // this goes to the app.post
       })
       .catch((err) => {
         res.status(401).json(err);
