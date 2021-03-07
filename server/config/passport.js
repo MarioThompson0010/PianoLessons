@@ -1,6 +1,8 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
+const db = require('../models');
+
 // Telling passport we want to use a Local Strategy.
 // In other words, we want login with a username/email and password
 passport.use(
@@ -13,6 +15,18 @@ passport.use(
       // When a user tries to sign in this code runs
 
       const isloginSuccessful = false;
+      const user = await db.User.findOne({
+        where: {
+          email
+        }
+      });
+
+      if (!user || !user.validPassword(password)) {
+        isloginSuccessful = true;
+        return done(null, false, {
+          message: 'Incorrect email or password.'
+        });
+      }
 
       if (!isloginSuccessful) {
         // Login failed

@@ -39,7 +39,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // Dynamically force schema refresh only for 'test'
-const FORCE_SCHEMA = process.env.NODE_ENV === 'development';
+const FORCE_SCHEMA = process.env.NODE_ENV === 'test';
 
 db.sequelize
   .authenticate()
