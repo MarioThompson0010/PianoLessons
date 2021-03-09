@@ -11,15 +11,20 @@ passport.use(
     {
       usernameField: 'username',
     },
-    async (email, password, done) => {
+    async (username, password, done) => {
       // When a user tries to sign in this code runs
 
       const isloginSuccessful = false;
       const user = await db.User.findOne({
         where: {
-          email
+          username
         }
-      });
+      })
+        .catch(error => {
+          return done(null, false, {
+            message: 'Incorrect email or password.'
+          });
+        });
 
       if (!user || !user.validPassword(password)) {
         return done(null, false, {
@@ -27,15 +32,16 @@ passport.use(
         });
       }
 
-      if (!isloginSuccessful) {
-        // Login failed
-        return done(null, false, {
-          message: 'Invalid user details',
-        });
-      }
+      // if (!isloginSuccessful) {
+      //   // Login failed
+      //   return done(null, false, {
+      //     message: 'Invalid user details',
+      //   });
+      // }
 
       // Login success
       return done(null, user);
+
     }
   )
 );

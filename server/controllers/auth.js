@@ -42,8 +42,14 @@ module.exports = {
 
     })(req, res);
 
-    const user = await res.json(req.user);
-    return user;
+    try{
+      const user = await res.json(req.user);
+      return res.json(user);
+    }
+    catch(err){
+      return err;
+    }
+    
   }
 }
 

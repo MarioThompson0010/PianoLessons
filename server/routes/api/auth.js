@@ -8,8 +8,8 @@ const db = require('../../models');
 //router.use(passport.authenticate('local'));
 
 // Matches with '/api/auth/login'
-router.route('/login').post(authController.login);
-
+//router.route('/login').post(authController.login);
+   
 //router.route('/signup').post(authController.signup);
 // router.route('/login').post(authController.login);
 
