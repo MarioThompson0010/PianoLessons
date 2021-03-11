@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import Nav from "./components/Nav";
 import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
 
 function App() {
   return (
@@ -21,6 +22,10 @@ function App() {
             <Switch>
               <Route exact path={["/", "/Login"]}>
                 <Login />
+              </Route>
+
+              <Route exact path={["/Signup"]}>
+                <SignUp />
               </Route>
             </Switch>
           </div>

@@ -5,7 +5,7 @@ export default {
         return axios.post('/api/auth/signup/', user);
     },
 
-    register: function(user) {
+    login: function(user) {
         return axios.post('/api/authlogin/login/', user);
     }
 };
