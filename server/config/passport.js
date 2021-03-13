@@ -11,13 +11,13 @@ passport.use(
     {
       usernameField: 'username',
     },
-    async (username, password, done) => {
+    async (email, password, done) => {
       // When a user tries to sign in this code runs
 
       const isloginSuccessful = false;
       const user = await db.User.findOne({
         where: {
-          username
+          email
         }
       })
         .catch(error => {

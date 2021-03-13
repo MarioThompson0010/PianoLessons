@@ -6,12 +6,13 @@ const passport = require('../config/passport');
 const login = async (req, res) => {
     try {
 
-        const user = await res.json(req.user);
+        const user1 = await res.json(req.user);
 
-        return res.json(user);
+        return res.json(user1);
     }
     catch(err){
-        return err;
+       // return res.json(err);
+       
     }
    
 
