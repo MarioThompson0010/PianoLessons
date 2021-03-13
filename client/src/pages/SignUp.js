@@ -29,12 +29,12 @@ function SignUp() {
     function handleFormLogin(event) {
 
         event.preventDefault();
-        const username = formObject.username;
+        //const email = formObject.email;
         const pword1 = formObject.password;
         const pword2 = formObject.passwordConfirm;
 
         if (pword1 !== pword2){
-
+            
         }
     //    const {username} = event.target;
     //    const [password] = event.target;
@@ -52,7 +52,7 @@ function SignUp() {
     return (
         <div>
             <form>
-                <div className="row mb-1">
+                {/* <div className="row mb-1">
                     <div className="col-md-12">
                         <input id="usernameInput" type="text"
                             name="username"
@@ -62,7 +62,7 @@ function SignUp() {
                         </input>
 
                     </div>
-                </div>
+                </div> */}
 
                 <div className="row mb-1">
                     <div className="col-md-12">
