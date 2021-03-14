@@ -33,15 +33,17 @@ function SignUp() {
         const pword1 = formObject.password;
         const pword2 = formObject.passwordConfirm;
 
-        if (pword1 !== pword2){
-            
+        if (pword1 !== pword2) {
+
         }
-    //    const {username} = event.target;
-    //    const [password] = event.target;
+        //    const {username} = event.target;
+        //    const [password] = event.target;
 
         API.register(formObject)
             .then(res => {
                 console.log(res);
+                history.push({ pathname: "/Login", state: { detail: res.data } });
+
                 //console.log(res.items);
                 // setBooks(res.data.items);
             })
