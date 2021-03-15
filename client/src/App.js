@@ -5,6 +5,12 @@ import './App.css';
 import Nav from "./components/Nav";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import 'react-big-calendar/lib/css/react-big-calendar.css';
+
+//import { Calendar, momentLocalizer } from 'react-big-calendar';
+//import moment from 'moment';
+
+
 
 function App() {
   return (
