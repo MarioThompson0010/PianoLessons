@@ -5,6 +5,7 @@ import './App.css';
 import Nav from "./components/Nav";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import CalendarAvailability from "./pages/CalendarAvailability";
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 //import { Calendar, momentLocalizer } from 'react-big-calendar';
@@ -33,10 +34,18 @@ function App() {
               <Route exact path={["/Signup"]}>
                 <SignUp />
               </Route>
+
             </Switch>
           </div>
         </div>
 
+        <div className="row">
+          <div className="col-12">
+            <Route exact path={["/CalendarAvailability"]}>
+              <CalendarAvailability />
+            </Route>
+          </div>
+        </div>
       </div>
     </Router>
     // <div className="App">

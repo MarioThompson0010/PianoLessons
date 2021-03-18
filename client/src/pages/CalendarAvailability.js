@@ -1,17 +1,59 @@
 import React, { useState, useEffect } from "react";
 import API from "../utils/API";
-import { useHistory } from "react-router-dom";
-import {CalendarComponent} from "../components/CalendarComponent";
-  
+import { useHistory, useParams } from "react-router-dom";
+import CalendarComponent from "../components/CalendarComponent";
+import moment from 'moment';
+import { Calendar, momentLocalizer } from 'react-big-calendar';
 
 function CalendarAvailability() {
-    
-    let history = useHistory();
+    const localizer = momentLocalizer(moment);
 
+    let history = useHistory();
+    const { id } = useParams(); // not currently being used, but good to keep in mind
     const [formObject, setFormObject] = useState({});
+    // let [stater, setStater] = useState({
+
+    //     events: [
+    //         {
+    //             start: moment().toDate(),
+    //             end: moment()
+    //                 .add(1, "days")
+    //                 .toDate(),
+    //             title: "Some title"
+    //         }
+    //     ]
+
+    // });
+    console.log(history.location.state.detail);
+    const stater = {
+        events: [
+            {
+                start: moment().toDate(),
+                end: moment()
+                    .add(1, "days")
+                    .toDate(),
+                title: "Some title"
+            }
+        ]
+    };
+
+    // setFormObject(stater);
 
     useEffect(() => {
-        // loadBooks() // this would have loaded the books
+        console.log(history.location.state.detail);
+        // const stater = {
+        //     events: [
+        //         {
+        //             start: moment().toDate(),
+        //             end: moment()
+        //                 .add(1, "days")
+        //                 .toDate(),
+        //             title: "Some title"
+        //         }
+        //     ]
+        // };
+
+        //setFormObject(stater);
     }, []);
 
     function handleInputChange(event) {
@@ -25,54 +67,31 @@ function CalendarAvailability() {
         API.login(formObject)
             .then(res => {
                 console.log(res);
-                //history.push({ pathname: "/CalenderAvailability", state: { detail: res.data } });
             })
             .catch(err => console.log(err));
     };
 
     return (
 
-    
+
         <div>
             <form>
 
-                <CalendarComponent>
-                    
-                </CalendarComponent>
-                {/* <div className="row mb-1">
-                    <div className="col-md-12">
-                        <input id="usernameInput" type="text"
-                        name="username"
-                        placeholder="User name"
-                         onChange={handleInputChange}
-                        >
-                        </input>
+                <Calendar
+                    localizer={localizer}
+                    defaultDate={new Date()}
+                    defaultView="month"
+                    events={stater.events}
+                    style={{ height: "100vh" }}
+                />
 
-                    </div>
-                </div> */}
 
-                {/* <div className="row mb-1">
-                    <div className="col-md-12">
-                        <input id="passwordInput" type="password" 
-                        name="password"
-                        placeholder="password" 
-                         onChange={handleInputChange}
-                        >
-                        </input>
+                {/* <CalendarComponent
+                    props={stater}
+                >
 
-                    </div>
-                </div> */}
+                </CalendarComponent> */}
 
-                {/* <div className="row">
-                    <div className="col-md-12">
-                        <input id="submitInput" type="submit" placeholder="Login" 
-                         onClick={handleFormLogin}
-                       
-                        >
-                        </input>
-
-                    </div>
-                </div> */}
             </form>
 
 

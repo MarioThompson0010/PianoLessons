@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import API from "../utils/API";
 import { useHistory } from "react-router-dom";
-import CalendarComponent from "../components/CalendarComponent";
+import {CalendarComponent} from "../components/CalendarComponent";
 //import moment from 'moment';
 
 //import { Calendar, momentLocalizer } from 'react-big-calendar';
@@ -28,7 +28,7 @@ function Login() {
         API.login(formObject)
             .then(res => {
                 console.log(res);
-                history.push({ pathname: "/CalenderAvailability", state: { detail: res.data } });
+                history.push({ pathname: "/CalendarAvailability", state: { detail: res.data } });
             })
             .catch(err => console.log(err));
     };
