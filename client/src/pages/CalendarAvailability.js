@@ -77,20 +77,20 @@ function CalendarAvailability() {
         <div>
             <form>
 
-                <Calendar
+                {/* <Calendar
                     localizer={localizer}
                     defaultDate={new Date()}
                     defaultView="month"
                     events={stater.events}
                     style={{ height: "100vh" }}
-                />
+                /> */}
 
 
-                {/* <CalendarComponent
-                    props={stater}
+                 <CalendarComponent
+                    events={stater}
                 >
 
-                </CalendarComponent> */}
+                </CalendarComponent> 
 
             </form>
 
