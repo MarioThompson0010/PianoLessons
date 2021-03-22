@@ -7,7 +7,7 @@ const passport = require('../config/passport');
 // };
 
 module.exports = {
-  signup: (req, res) => {
+  signup:  (req, res) => {
 
     // passport.authenticate('local', {
 
@@ -34,23 +34,23 @@ module.exports = {
   // })(req, res);
 
 
-  login: async (req, res) => {
-    passport.authenticate('local', {
+  // login: async (req, res) => {
+  //   passport.authenticate('local', {
 
-      successRedirect: '/',
-      failureRedirect: '/login',
+  //     successRedirect: '/',
+  //     failureRedirect: '/login',
 
-    })(req, res);
+  //   })(req, res);
 
-    try{
-      const user = await res.json(req.user);
-      return res.json(user);
-    }
-    catch(err){
-      return err;
-    }
+  //   try{
+  //     const user = await res.json(req.user);
+  //     return res.json(user);
+  //   }
+  //   catch(err){
+  //     return err;
+  //   }
     
-  }
+  // }
 }
 
 //exports.login = login;
