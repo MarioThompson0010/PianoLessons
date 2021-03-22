@@ -25,7 +25,7 @@ function CalendarAvailability() {
 
     // });
     console.log(history.location.state.detail);
-    const stater = {
+    let stater = {
         events: [
             {
                 start: moment().toDate(),
@@ -72,31 +72,16 @@ function CalendarAvailability() {
     };
 
     return (
-
-
         <div>
             <form>
-
-                {/* <Calendar
-                    localizer={localizer}
-                    defaultDate={new Date()}
-                    defaultView="month"
-                    events={stater.events}
-                    style={{ height: "100vh" }}
-                /> */}
-
 
                  <CalendarComponent
                     events={stater}
                 >
 
                 </CalendarComponent> 
-
             </form>
-
-
         </div>
-
     );
 }
 
