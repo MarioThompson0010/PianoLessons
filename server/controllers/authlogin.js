@@ -2,7 +2,7 @@ const db = require('../models');
 const isAuthenticated = require('../config/middleware/isAuthenticated');
 const passport = require('../config/passport');
 
-const login = async (req, res) => {
+const login = async  (req, res) => {
     try {
 
         const user1 = await res.json(req.user);
