@@ -67,6 +67,7 @@ function CalendarAvailability() {
         API.login(formObject)
             .then(res => {
                 console.log(res);
+                
             })
             .catch(err => console.log(err));
     };
@@ -76,7 +77,7 @@ function CalendarAvailability() {
             <form>
 
                  <CalendarComponent
-                    events={stater}
+                    events={history.location.state.detail}
                 >
 
                 </CalendarComponent> 

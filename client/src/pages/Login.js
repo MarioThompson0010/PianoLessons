@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import API from "../utils/API";
 import { useHistory } from "react-router-dom";
-import {CalendarComponent} from "../components/CalendarComponent";
+import { CalendarComponent } from "../components/CalendarComponent";
 //import moment from 'moment';
 
 //import { Calendar, momentLocalizer } from 'react-big-calendar';
@@ -28,7 +28,27 @@ function Login() {
         API.login(formObject)
             .then(res => {
                 console.log(res);
-                history.push({ pathname: "/CalendarAvailability", state: { detail: res.data } });
+                API.getDates()
+                    .then(res => {
+                        console.log(res);
+
+                        const stater = {
+                            events: [
+                                {
+                                    start: res.data[0].dateStart,         //moment().toDate(),
+                                    end: res.data[0].dateEnd,
+                                    // end: moment()
+                                    //     .add(1, "days")
+                                    //     .toDate(),
+                                    title: res.data[0].title //"Some title"
+                                }
+                            ]
+                        };
+
+                        history.push({ pathname: "/CalendarAvailability", state: { detail: stater } });
+
+                    })
+                    .catch(err => console.log(err));
             })
             .catch(err => console.log(err));
     };
@@ -39,9 +59,9 @@ function Login() {
                 <div className="row mb-1">
                     <div className="col-md-12">
                         <input id="usernameInput" type="text"
-                        name="username"
-                        placeholder="User name"
-                         onChange={handleInputChange}
+                            name="username"
+                            placeholder="User name"
+                            onChange={handleInputChange}
                         >
                         </input>
 
@@ -50,10 +70,10 @@ function Login() {
 
                 <div className="row mb-1">
                     <div className="col-md-12">
-                        <input id="passwordInput" type="password" 
-                        name="password"
-                        placeholder="password" 
-                         onChange={handleInputChange}
+                        <input id="passwordInput" type="password"
+                            name="password"
+                            placeholder="password"
+                            onChange={handleInputChange}
                         >
                         </input>
 
@@ -62,9 +82,9 @@ function Login() {
 
                 <div className="row">
                     <div className="col-md-12">
-                        <input id="submitInput" type="submit" placeholder="Login" 
-                         onClick={handleFormLogin}
-                       
+                        <input id="submitInput" type="submit" placeholder="Login"
+                            onClick={handleFormLogin}
+
                         >
                         </input>
 

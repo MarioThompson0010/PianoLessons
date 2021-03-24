@@ -7,7 +7,15 @@ const dates = async (req, res) => {
 
         const test = req.user;
         // const user1 = await res.json(req.user);
-        const dbCalendar = await db.CalendarModel.findAll({ include: [db.User] });
+        const dbCalendar = await db.CalendarModel.findAll({
+            where: { id: req.user.id }
+           // include: [db.User]
+
+        });
+        // {
+        //     where: { id: req.params.id },
+        //     include: [db.Post, db.User]
+        //   }
         return res.json(dbCalendar);
         // return res.json(user1);
     }
@@ -36,9 +44,9 @@ const datesCreate = async (req, res) => {
         return res.json(dbCalendar);
         // return res.json(user1);
 
-       // db.Post.create(createpost).then(function (dbPost) {
-            //       res.json(dbPost);
-            //     });
+        // db.Post.create(createpost).then(function (dbPost) {
+        //       res.json(dbPost);
+        //     });
     }
     catch (err) {
         res.status(401).json(err);
