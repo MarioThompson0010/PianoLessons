@@ -14,7 +14,7 @@ function CalendarComponent(props) {
                 defaultDate={new Date()}
                 defaultView="month"
                 events={props.events.events}
-                style={{ height: "100vh" }}
+                style={{ height: props.height }}
             />
              {props.children}
         </div>

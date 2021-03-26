@@ -78,6 +78,7 @@ function CalendarAvailability() {
 
                  <CalendarComponent
                     events={history.location.state.detail}
+                    height="100vh"
                 >
 
                 </CalendarComponent> 

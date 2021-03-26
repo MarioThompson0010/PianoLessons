@@ -2,10 +2,6 @@ import React, { useState, useEffect } from "react";
 import API from "../utils/API";
 import { useHistory } from "react-router-dom";
 import { CalendarComponent } from "../components/CalendarComponent";
-//import moment from 'moment';
-
-//import { Calendar, momentLocalizer } from 'react-big-calendar';
-
 
 
 function Login() {
