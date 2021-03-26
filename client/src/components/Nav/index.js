@@ -16,6 +16,12 @@ function Nav() {
                 Sign up
             </Link>
 
+            <Link className="navbar-brand"
+                to="/EnterDates"
+            >
+                Enter Dates
+            </Link>
+
 
 
         </nav>

@@ -5,6 +5,7 @@ import './App.css';
 import Nav from "./components/Nav";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import EnterDates from "./pages/EnterDates";
 import CalendarAvailability from "./pages/CalendarAvailability";
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
@@ -33,6 +34,10 @@ function App() {
 
               <Route exact path={["/Signup"]}>
                 <SignUp />
+              </Route>
+
+              <Route exact path={["/EnterDates"]}>
+                <EnterDates />
               </Route>
 
             </Switch>
