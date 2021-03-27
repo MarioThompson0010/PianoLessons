@@ -8,6 +8,7 @@ import SignUp from "./pages/SignUp";
 import EnterDates from "./pages/EnterDates";
 import CalendarAvailability from "./pages/CalendarAvailability";
 import 'react-big-calendar/lib/css/react-big-calendar.css';
+import "react-datepicker/dist/react-datepicker.css";
 
 //import { Calendar, momentLocalizer } from 'react-big-calendar';
 //import moment from 'moment';
@@ -36,9 +37,7 @@ function App() {
                 <SignUp />
               </Route>
 
-              <Route exact path={["/EnterDates"]}>
-                <EnterDates />
-              </Route>
+
 
             </Switch>
           </div>
@@ -48,6 +47,10 @@ function App() {
           <div className="col-12">
             <Route exact path={["/CalendarAvailability"]}>
               <CalendarAvailability />
+            </Route>
+
+            <Route exact path={["/EnterDates"]}>
+              <EnterDates />
             </Route>
           </div>
         </div>

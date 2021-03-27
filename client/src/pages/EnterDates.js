@@ -4,11 +4,14 @@ import { useHistory, useParams } from "react-router-dom";
 import CalendarComponent from "../components/CalendarComponent";
 import moment from 'moment';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
+//import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+import DatePicker from "react-datepicker";
 
 function EnterDates() {
     const localizer = momentLocalizer(moment);
     let history = useHistory();
     const [formObject, setFormObject] = useState({});
+    const [startDate, setStartDate] = useState(new Date());
 
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -27,10 +30,14 @@ function EnterDates() {
     };
 
     return (
-        <div>
-            <form>
+        <div className="row mb-1">
+            <div className="col-md-5">
 
-            </form>
+            </div>
+            <div className="cl-md-7">
+                <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
+
+            </div>
         </div>
     );
 
