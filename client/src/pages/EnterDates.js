@@ -21,6 +21,18 @@ function EnterDates() {
     function handleFormLogin(event) {
 
         event.preventDefault();
+        const datejson = startDate.toJSON();
+
+        API.createDate({
+            "dateStart": datejson,
+            "dateEnd": datejson,
+            "title": "Piano lesson"
+        }
+            )
+        .then(res => {
+            console.log(res);
+        })
+        .catch(err => console.log(err));
         // API.login(formObject)
         //     .then(res => {
         //         console.log(res);
@@ -38,7 +50,11 @@ function EnterDates() {
                 </div>
                 <div className="col-md-7">
                     <form>
-                        <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
+                        <DatePicker 
+                        selected={startDate} 
+                        onChange={date => setStartDate(date)}
+                       // onSelect={handleDateSelect} //when day is clicked
+                        />
 
                     </form>
 
@@ -46,7 +62,7 @@ function EnterDates() {
             </div>
             <div className="row mt-1">
                 <div className="col-md-5">
-                    
+
                 </div>
 
                 <div className="col-md-7">

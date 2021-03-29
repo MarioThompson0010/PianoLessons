@@ -10,5 +10,8 @@ export default {
     },
     getDates: function() {
         return axios.get('/api/dates/getDates');
+    },
+    createDate: function(date) {
+        return axios.post('/api/dates/createDate', date );
     }
 };
