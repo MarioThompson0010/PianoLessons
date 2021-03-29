@@ -30,15 +30,35 @@ function EnterDates() {
     };
 
     return (
-        <div className="row mb-1">
-            <div className="col-md-5">
+        <div>
 
+            <div className="row mb-1">
+                <div className="col-md-5">
+
+                </div>
+                <div className="col-md-7">
+                    <form>
+                        <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
+
+                    </form>
+
+                </div>
             </div>
-            <div className="cl-md-7">
-                <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
+            <div className="row mt-1">
+                <div className="col-md-5">
+                    
+                </div>
 
+                <div className="col-md-7">
+                    <input id="submitInput" type="submit" placeholder="Save Date"
+                        onClick={handleFormLogin}
+
+                    >
+                    </input>
+                </div>
             </div>
         </div>
+
     );
 
 }
