@@ -9,14 +9,16 @@ const localizer = momentLocalizer(moment);
 function CalendarComponent(props) {
     return (
         <div>
+
             <Calendar
                 localizer={localizer}
                 defaultDate={new Date()}
                 defaultView="month"
-                events={props.events.events}
+                events={props.events.detail.events}
                 style={{ height: props.height }}
             />
-             {props.children}
+
+            {props.children}
         </div>
 
     );

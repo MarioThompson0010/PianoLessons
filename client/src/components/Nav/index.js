@@ -22,6 +22,12 @@ function Nav() {
                 Enter Dates
             </Link>
 
+            <Link className="navbar-brand"
+                to="/ViewDates"
+            >
+                View Calendar
+            </Link>
+
 
 
         </nav>

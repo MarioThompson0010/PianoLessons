@@ -5,21 +5,26 @@ import CalendarComponent from "../components/CalendarComponent";
 import moment from 'moment';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 
-function CalendarAvailability() {
-    const localizer = momentLocalizer(moment);
-    let stater = {
-        events: [
-            {
-                start: moment().toDate(),
-                end: moment()
-                    .add(1, "days")
-                    .toDate(),
-                title: "Some title"
-            }
-        ]
-    };
+function ViewDates() {
 
+
+
+    // API.login(formObject)
+    //     .then(res => {
+    //   console.log(res);
+    const localizer = momentLocalizer(moment);
+    let history = useHistory();
+    const { id } = useParams(); // not currently being used, but good to keep in mind
+    const [formObject, setFormObject] = useState({});
+
+
+    useEffect(() => {
+        //console.log(history.location.state.detail);
+    }, []);
+
+    let stater = {};
     const dateGetter = () => {
+        //event.preventDefault();
         API.getDates()
             .then(res => {
                 console.log(res);
@@ -36,47 +41,43 @@ function CalendarAvailability() {
                         }
                     ]
                 };
+
+                 history.push({ pathname: "/CalendarAvailability", state: { detail: stater } });
+
             })
             .catch(err => console.log(err));
+        // })
+        // .catch(err => console.log(err));
     }
 
-    let history = useHistory();
-    const { id } = useParams(); // not currently being used, but good to keep in mind
-    const [formObject, setFormObject] = useState({});
-    //console.log(history.location.state.detail);
-
-
-
-    useEffect(() => {
-        console.log(history.location.state.detail);
-    }, []);
-
-    function handleInputChange(event) {
-        const { name, value } = event.target;
-        setFormObject({ ...formObject, [name]: value })
-    };
-
-    // if (!history.location.state) {
-    //     dateGetter();
-
-    //}
-
+    dateGetter();
 
     return (
         <div>
             <form>
 
 
+                {/* {
+                    stater.events !== undefined ?
+                    
 
-                <CalendarComponent
-                    events={history.location.state}
+                    <CalendarComponent
+                    events={stater}
                     height="100vh"
                 >
                 </CalendarComponent>
+                :
+                    setFormObject({})
+
+                } */}
+
+
+
 
             </form>
         </div>
     );
+
 }
 
-export default CalendarAvailability;
+export default ViewDates;

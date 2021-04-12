@@ -5,6 +5,7 @@ import './App.css';
 import Nav from "./components/Nav";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import ViewDates from "./pages/ViewDates";
 import EnterDates from "./pages/EnterDates";
 import CalendarAvailability from "./pages/CalendarAvailability";
 import 'react-big-calendar/lib/css/react-big-calendar.css';
@@ -45,12 +46,16 @@ function App() {
 
         <div className="row">
           <div className="col-12">
-            <Route exact path={["/CalendarAvailability"]}>
-              <CalendarAvailability />
+            <Route exact path={["/ViewDates"]}>
+              <ViewDates />
             </Route>
 
             <Route exact path={["/EnterDates"]}>
               <EnterDates />
+            </Route>
+
+            <Route exact path={["/CalendarAvailability"]}>
+              <CalendarAvailability />
             </Route>
           </div>
         </div>

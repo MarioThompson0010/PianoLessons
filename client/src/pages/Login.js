@@ -33,9 +33,6 @@ function Login() {
                                 {
                                     start: res.data[0].dateStart,         //moment().toDate(),
                                     end: res.data[0].dateEnd,
-                                    // end: moment()
-                                    //     .add(1, "days")
-                                    //     .toDate(),
                                     title: res.data[0].title //"Some title"
                                 }
                             ]
