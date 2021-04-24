@@ -7,6 +7,7 @@ const passport = require('../config/passport');
 // };
 
 module.exports = {
+  // this isn't used but I guess it could be
   signup:  (req, res) => {
 
     // passport.authenticate('local', {
