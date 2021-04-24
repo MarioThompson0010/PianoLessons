@@ -14,7 +14,7 @@ function CalendarComponent(props) {
                 localizer={localizer}
                 defaultDate={new Date()}
                 defaultView="month"
-                events={props.events.detail.events}
+                events={props.events.detail/*[0].events*/}
                 style={{ height: props.height }}
             />
 

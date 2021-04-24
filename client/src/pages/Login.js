@@ -27,18 +27,34 @@ function Login() {
                 API.getDates()
                     .then(res => {
                         console.log(res);
+                        // appointments[i].start =  
+        //                 let appointments = response.data;
+        
+        // for (let i = 0; i < appointments.length; i++) {
+        //   appointments[i].start =    moment.utc(appointments[i].start).toDate();
+        //   appointments[i].end = moment.utc(appointments[i].end).toDate();
+                        const datearray = [];
+                        for (let i = 0; i < res.data[0].CalendarModels.length; i++){
+                            const objguy = {
+                                start : res.data[0].CalendarModels[i].dateStart,
+                                end: res.data[0].CalendarModels[i].dateEnd,
+                                title: res.data[0].CalendarModels[i].title
+                            }
 
+                            datearray.push(objguy);
+                        }
                         const stater = {
                             events: [
                                 {
-                                    start: res.data[0].dateStart,         //moment().toDate(),
-                                    end: res.data[0].dateEnd,
-                                    title: res.data[0].title //"Some title"
+                                    start: res.data[0].CalendarModels[0].dateStart,         //moment().toDate(),
+                                    end: res.data[0].CalendarModels[0].dateEnd,
+                                    title: res.data[0].CalendarModels[0].title //"Some title"
                                 }
                             ]
                         };
 
-                        history.push({ pathname: "/CalendarAvailability", state: { detail: stater } });
+                        //datearray.push(stater);
+                        history.push({ pathname: "/CalendarAvailability", state: { detail: /*stater*/ datearray /*res.data[0].CalendarModels*/ } });
 
                     })
                     .catch(err => console.log(err));
