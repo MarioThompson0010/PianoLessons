@@ -5,7 +5,7 @@ import CalendarComponent from "../components/CalendarComponent";
 import moment from 'moment';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 
-function ViewDates() {
+ function  ViewDates() {
 
 
 
@@ -42,7 +42,7 @@ function ViewDates() {
                     ]
                 };
 
-                 history.push({ pathname: "/CalendarAvailability", state: { detail: stater } });
+                history.push({ pathname: "/CalendarAvailability", state: { detail: stater } });
 
             })
             .catch(err => console.log(err));
@@ -50,8 +50,31 @@ function ViewDates() {
         // .catch(err => console.log(err));
     }
 
-    
-    dateGetter();
+    try {
+
+        API.checkAuth()
+        .then(res => {
+
+            if (res.data === "good logon") {
+                dateGetter();
+            }
+            else {
+                history.push({ pathname: "/Login" });
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            history.push({ pathname: "/Login" });
+        });
+        
+    }
+    catch (err) {
+        console.log(err);
+        history.push({ pathname: "/Login" });
+    };
+
+
+
 
     return (
         <div>

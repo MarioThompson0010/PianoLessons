@@ -28,11 +28,11 @@ function EnterDates() {
             "dateEnd": datejson,
             "title": "Piano lesson"
         }
-            )
-        .then(res => {
-            console.log(res);
-        })
-        .catch(err => console.log(err));
+        )
+            .then(res => {
+                console.log(res);
+            })
+            .catch(err => console.log(err));
         // API.login(formObject)
         //     .then(res => {
         //         console.log(res);
@@ -40,6 +40,21 @@ function EnterDates() {
         //     })
         //     .catch(err => console.log(err));
     };
+
+    API.checkAuth()
+        .then(res => {
+
+            if (res.data === "good logon") {
+                dateGetter();
+            }
+            else {
+                history.push({ pathname: "/Login" });
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            history.push({ pathname: "/Login" });
+        });
 
     return (
         <div>
@@ -50,10 +65,10 @@ function EnterDates() {
                 </div>
                 <div className="col-md-7">
                     <form>
-                        <DatePicker 
-                        selected={startDate} 
-                        onChange={date => setStartDate(date)}
-                       // onSelect={handleDateSelect} //when day is clicked
+                        <DatePicker
+                            selected={startDate}
+                            onChange={date => setStartDate(date)}
+                        // onSelect={handleDateSelect} //when day is clicked
                         />
 
                     </form>

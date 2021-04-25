@@ -16,5 +16,8 @@ export default {
     },
     logOff: function() {
         return axios.post('/api/logoff/dologoff', {});
+    },
+    checkAuth:  () => {
+        return axios.get('api/checkLogOn/getAuthCheck');
     }
 };
