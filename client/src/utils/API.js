@@ -13,5 +13,8 @@ export default {
     },
     createDate: function(date) {
         return axios.post('/api/dates/createDate', date );
+    },
+    logOff: function() {
+        return axios.post('/api/logoff/dologoff', {});
     }
 };

@@ -28,6 +28,12 @@ function Nav() {
                 View Calendar
             </Link>
 
+            <Link className="navbar-brand"
+                to="/Logoff"
+            >
+                Log off
+            </Link>
+
 
 
         </nav>

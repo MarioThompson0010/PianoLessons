@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import Nav from "./components/Nav";
 import Login from "./pages/Login";
+import Logoff from "./pages/Logoff";
 import SignUp from "./pages/SignUp";
 import ViewDates from "./pages/ViewDates";
 import EnterDates from "./pages/EnterDates";
@@ -39,6 +40,9 @@ function App() {
               </Route>
 
 
+              <Route exact path={["/Logoff"]}>
+                <Logoff />
+              </Route>
 
             </Switch>
           </div>

@@ -50,6 +50,7 @@ function ViewDates() {
         // .catch(err => console.log(err));
     }
 
+    
     dateGetter();
 
     return (
