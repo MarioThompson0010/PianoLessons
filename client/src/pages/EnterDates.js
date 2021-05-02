@@ -18,6 +18,25 @@ function EnterDates() {
         setFormObject({ ...formObject, [name]: value })
     };
 
+    useEffect(() => {
+        // loadBooks() // this would have loaded the books
+
+        API.checkAuth()
+            .then(res => {
+
+                if (res.data !== "good logon") {
+                    history.push({ pathname: "/Login" });
+                }
+                // else {
+                //     history.push({ pathname: "/Login" });
+                // }
+            })
+            .catch(err => {
+                console.log(err);
+                history.push({ pathname: "/Login" });
+            });
+    }, []);
+
     function handleFormLogin(event) {
 
         event.preventDefault();
@@ -41,20 +60,7 @@ function EnterDates() {
         //     .catch(err => console.log(err));
     };
 
-    API.checkAuth()
-        .then(res => {
 
-            if (res.data === "good logon") {
-                dateGetter();
-            }
-            else {
-                history.push({ pathname: "/Login" });
-            }
-        })
-        .catch(err => {
-            console.log(err);
-            history.push({ pathname: "/Login" });
-        });
 
     return (
         <div>
