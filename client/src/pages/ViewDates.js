@@ -5,7 +5,7 @@ import CalendarComponent from "../components/CalendarComponent";
 import moment from 'moment';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 
- function  ViewDates() {
+function ViewDates() {
 
 
 
@@ -19,7 +19,27 @@ import { Calendar, momentLocalizer } from 'react-big-calendar';
 
 
     useEffect(() => {
-        //console.log(history.location.state.detail);
+        API.getDates()
+            .then(res => {
+                console.log(res);
+
+                stater = {
+                    events: [
+                        {
+                            start: res.data[0].dateStart,         //moment().toDate(),
+                            end: res.data[0].dateEnd,
+                            // end: moment()
+                            //     .add(1, "days")
+                            //     .toDate(),
+                            title: res.data[0].title //"Some title"
+                        }
+                    ]
+                };
+
+                history.push({ pathname: "/CalendarAvailability", state: { detail: stater } });
+
+            })
+            .catch(err => console.log(err));
     }, []);
 
     let stater = {};
@@ -50,28 +70,28 @@ import { Calendar, momentLocalizer } from 'react-big-calendar';
         // .catch(err => console.log(err));
     }
 
-    try {
+    // try {
 
-        API.checkAuth()
-        .then(res => {
+    //     API.checkAuth()
+    //         .then(res => {
 
-            if (res.data === "good logon") {
-                dateGetter();
-            }
-            else {
-                history.push({ pathname: "/Login" });
-            }
-        })
-        .catch(err => {
-            console.log(err);
-            history.push({ pathname: "/Login" });
-        });
-        
-    }
-    catch (err) {
-        console.log(err);
-        history.push({ pathname: "/Login" });
-    };
+    //             if (res.data === "good logon") {
+    //                 dateGetter();
+    //             }
+    //             else {
+    //                 history.push({ pathname: "/Login" });
+    //             }
+    //         })
+    //         .catch(err => {
+    //             console.log(err);
+    //             history.push({ pathname: "/Login" });
+    //         });
+
+    // }
+    // catch (err) {
+    //     console.log(err);
+    //     history.push({ pathname: "/Login" });
+    // };
 
 
 

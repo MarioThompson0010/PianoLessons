@@ -6,7 +6,10 @@ import { CalendarComponent } from "../components/CalendarComponent";
 
 function Login() {
     let history = useHistory();
-
+    let sendarray =  {
+        fromLogin : true,
+        datearray: []
+    };
     const [formObject, setFormObject] = useState({});
 
     useEffect(() => {
@@ -41,7 +44,7 @@ function Login() {
                                 title: res.data[0].CalendarModels[i].title
                             }
 
-                            datearray.push(objguy);
+                            sendarray.datearray.push(objguy);
                         }
                         const stater = {
                             events: [
@@ -54,7 +57,7 @@ function Login() {
                         };
 
                         //datearray.push(stater);
-                        history.push({ pathname: "/CalendarAvailability", state: { detail: /*stater*/ datearray /*res.data[0].CalendarModels*/ } });
+                        history.push({ pathname: "/CalendarAvailability", state: { detail: sendarray /*stater datearray*/ /*res.data[0].CalendarModels*/ } });
 
                     })
                     .catch(err => console.log(err));

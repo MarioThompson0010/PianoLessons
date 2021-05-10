@@ -7,21 +7,27 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 const localizer = momentLocalizer(moment);
 
 function CalendarComponent(props) {
+    if (props !== undefined) {
     return (
+        
+
+        
         <div>
 
             <Calendar
                 localizer={localizer}
                 defaultDate={new Date()}
                 defaultView="month"
-                events={props.events.detail/*[0].events*/}
+                events={props.events/*[0].events*/}
                 style={{ height: props.height }}
             />
 
             {props.children}
         </div>
+        
 
     );
+    }
 
 }
 
