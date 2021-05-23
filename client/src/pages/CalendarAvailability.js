@@ -81,31 +81,37 @@ function CalendarAvailability(arg0, ...arg1) {
             //THIS CHANGES DATEARRAY!!!
             goodary = history.location.state.detail.datearray.map(x => {
                 //figure out type
-                if (!x.start.includes("Z")) {
-                    var parts = x.start.split('-');
-                    let parts2 = x.end.split('-');
-                    // Please pay attention to the month (parts[1]); JavaScript counts months from 0:
-                    // January - 0, February - 1, etc.
-                    x.start = new Date(parts[0], parts[1] - 1, parts[2]);
-                    x.end = new Date(parts2[0], parts2[1] - 1, parts2[2]);
+                if (typeof x.start === "string") {
+                    if (!x.start.includes("Z")) {
+                        var parts = x.start.split('-');
+                        let parts2 = x.end.split('-');
+                        // Please pay attention to the month (parts[1]); JavaScript counts months from 0:
+                        // January - 0, February - 1, etc.
+                        x.start = new Date(parts[0], parts[1] - 1, parts[2]);
+                        x.end = new Date(parts2[0], parts2[1] - 1, parts2[2]);
 
-                    //x.end.toDate();
-                    x.title;
+                        //x.end.toDate();
+                        x.title;
+                        return x;
+                    }
+                    else {
+                        var parts = x.start.split('-');
+                        let parts2 = x.end.split('-');
+                        // Please pay attention to the month (parts[1]); JavaScript counts months from 0:
+                        // January - 0, February - 1, etc.
+                        x.start = new Date(parts[0], parts[1] - 1, parts[2].substring(0, 2));
+                        x.end = new Date(parts2[0], parts2[1] - 1, parts2[2].substring(0, 2));
+
+                        //x.end.toDate();
+                        x.title;
+                        return x;
+                        return x;
+                    }
+                }
+                else{
                     return x;
                 }
-                else {
-                    var parts = x.start.split('-');
-                    let parts2 = x.end.split('-');
-                    // Please pay attention to the month (parts[1]); JavaScript counts months from 0:
-                    // January - 0, February - 1, etc.
-                    x.start = new Date(parts[0], parts[1] - 1, parts[2].substring(0, 2));
-                    x.end = new Date(parts2[0], parts2[1] - 1, parts2[2].substring(0, 2));
 
-                    //x.end.toDate();
-                    x.title;
-                    return x;
-                    return x;
-                }
             });
         }
         let stater = {
@@ -194,8 +200,8 @@ function CalendarAvailability(arg0, ...arg1) {
 
                             //let stater2 = [];
                             let obj2 = {
-                                start: element.dateStart.toDate(),         //moment().toDate(),
-                                end: element.dateEnd.toDate(),
+                                start: element.dateStart,         //moment().toDate(),
+                                end: element.dateEnd,
                                 title: element.title //"Some title"
 
                             };
@@ -204,6 +210,77 @@ function CalendarAvailability(arg0, ...arg1) {
                             //stater.events.push(obj2);
 
                         });
+
+
+                        // goodary = sendarray.map(x => {
+                        //     if (!x.start.includes("Z")) {
+                        //                 var parts = x.start.split('-');
+                        //                 let parts2 = x.end.split('-');
+                        //                 // Please pay attention to the month (parts[1]); JavaScript counts months from 0:
+                        //                 // January - 0, February - 1, etc.
+                        //                 x.start = new Date(parts[0], parts[1] - 1, parts[2]);
+                        //                 x.end = new Date(parts2[0], parts2[1] - 1, parts2[2]);
+
+                        //                 //x.end.toDate();
+                        //                 x.title;
+                        //                 return x;
+                        //             }
+                        //             else {
+                        //                 var parts = x.start.split('-');
+                        //                 let parts2 = x.end.split('-');
+                        //                 // Please pay attention to the month (parts[1]); JavaScript counts months from 0:
+                        //                 // January - 0, February - 1, etc.
+                        //                 x.start = new Date(parts[0], parts[1] - 1, parts[2].substring(0, 2));
+                        //                 x.end = new Date(parts2[0], parts2[1] - 1, parts2[2].substring(0, 2));
+
+                        //                 //x.end.toDate();
+                        //                 x.title;
+                        //                 return x;
+                        //                 return x;
+                        //             }
+
+
+                        // });
+
+
+                        goodary = sendarray.datearray.map(x => {
+                            //figure out type
+                            if (typeof x.start === "string") {
+                                if (!x.start.includes("Z")) {
+                                    var parts = x.start.split('-');
+                                    let parts2 = x.end.split('-');
+                                    // Please pay attention to the month (parts[1]); JavaScript counts months from 0:
+                                    // January - 0, February - 1, etc.
+                                    x.start = new Date(parts[0], parts[1] - 1, parts[2]);
+                                    x.end = new Date(parts2[0], parts2[1] - 1, parts2[2]);
+
+                                    //x.end.toDate();
+                                    x.title;
+                                    return x;
+                                }
+                                else {
+                                    var parts = x.start.split('-');
+                                    let parts2 = x.end.split('-');
+                                    // Please pay attention to the month (parts[1]); JavaScript counts months from 0:
+                                    // January - 0, February - 1, etc.
+                                    x.start = new Date(parts[0], parts[1] - 1, parts[2].substring(0, 2));
+                                    x.end = new Date(parts2[0], parts2[1] - 1, parts2[2].substring(0, 2));
+
+                                    //x.end.toDate();
+                                    x.title;
+                                    return x;
+                                    return x;
+                                }
+                            }
+                            else {
+                                return x;
+                            }
+
+                        });
+
+
+
+
 
                         //setFormObject(true);
                         history.push({ pathname: "/CalendarAvailability", state: { detail: sendarray /*stater datearray*/ /*res.data[0].CalendarModels*/ } });
