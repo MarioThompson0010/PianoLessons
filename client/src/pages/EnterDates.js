@@ -40,6 +40,10 @@ function EnterDates() {
     function handleFormLogin(event) {
 
         event.preventDefault();
+        const temp4 = event.target.value;
+        const temp5 = startDate.toString();
+        const temp3 = startDate.inputValue;
+        const dater = startDate.toUTCString();;
         const datejson = startDate.toJSON();
 
         API.createDate({
@@ -74,6 +78,8 @@ function EnterDates() {
                         <DatePicker
                             selected={startDate}
                             onChange={date => setStartDate(date)}
+                            showTimeSelect
+                            dateFormat="MMMM d, yyyy h:mm aa"
                         // onSelect={handleDateSelect} //when day is clicked
                         />
 
