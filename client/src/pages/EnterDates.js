@@ -38,18 +38,21 @@ function EnterDates() {
     }, []);
 
     function handleFormLogin(event) {
-
+        // get time by looking for regex 00:00
+        const time = /\b\d{2}:\d{2}/;
         event.preventDefault();
         const temp4 = event.target.value;
-        const temp5 = startDate.toString();
+        const temp5 = startDate.toString(); // local time
         const temp3 = startDate.inputValue;
         const dater = startDate.toUTCString();;
         const datejson = startDate.toJSON();
+        const saveTime = temp5.match(time);
+        const sendTime = saveTime.shift();
 
         API.createDate({
             "dateStart": datejson,
             "dateEnd": datejson,
-            "title": "Piano lesson"
+            "title": sendTime
         }
         )
             .then(res => {
