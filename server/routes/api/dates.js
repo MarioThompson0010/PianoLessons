@@ -8,6 +8,7 @@ const isAuthenticated = require('../../config/middleware/isAuthenticated');
 router.use(isAuthenticated);
 router.route('/getDates').get(authDates.dates);
 router.route('/createDate').post(authDates.datesCreate);
+router.route('/datesMaster').get(authDates.datesMaster);
 
 
 // router.get('/getDates', isAuthenticated, (req, res) => {

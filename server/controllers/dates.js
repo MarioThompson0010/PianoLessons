@@ -26,6 +26,32 @@ const dates = async (req, res) => {
     }
 };
 
+const datesMaster = async (req, res) => {
+    try {
+
+        const test = req.user;
+        const dbCalendar = await db.CalendarModel.findAll(); 
+        // {
+        //     include: [
+
+        //         {
+        //             model: db.CalendarModel,
+        //             required: true
+        //         }
+        //     ]
+        // });
+
+
+        return res.json(dbCalendar);
+    }
+    catch (err) {
+        res.status(401).json(err);
+        // return res.json(err);
+
+    }
+};
+
+
 const datesCreate = async (req, res) => {
 
     try {
@@ -36,7 +62,7 @@ const datesCreate = async (req, res) => {
         const createDate = {
             dateStart: req.body.dateStart,
             dateEnd: req.body.dateEnd,
-            title: req.body.title,
+            title: req.body.title + " " + req.user.email,
             UserId: req.user.id
         };
 
@@ -58,6 +84,7 @@ const datesCreate = async (req, res) => {
 
 exports.dates = dates;
 exports.datesCreate = datesCreate;
+exports.datesMaster = datesMaster;
 
 // const intcat = parseInt(req.body.CategoryId);
 
