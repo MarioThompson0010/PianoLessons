@@ -25,10 +25,10 @@ function App() {
           <div className="col-md-6">
 
           </div>
-          <div className="col-md-1">
+          {/* <div className="col-md-1">
 
-          </div>
-          <div className="col-md-5">
+          </div> */}
+          <div className="col-md-6">
             <Nav />
             <Switch>
               <Route exact path={["/", "/Login"]}>
@@ -50,9 +50,13 @@ function App() {
 
         <div className="row">
           <div className="col-12">
-            <Route exact path={["/ViewDates"]}>
+            <Route exact path={["/ViewDates/:id"]}>
               <ViewDates />
             </Route>
+{/* 
+            <Route exact path={["/ViewDates"]} key={2}>
+              <ViewDates/>
+            </Route> */}
 
             <Route exact path={["/EnterDates"]}>
               <EnterDates />
