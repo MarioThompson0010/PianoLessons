@@ -53,10 +53,10 @@ function App() {
             <Route exact path={["/ViewDates/:id"]}>
               <ViewDates />
             </Route>
-{/* 
+
             <Route exact path={["/ViewDates"]} key={2}>
               <ViewDates/>
-            </Route> */}
+            </Route>
 
             <Route exact path={["/EnterDates"]}>
               <EnterDates />
