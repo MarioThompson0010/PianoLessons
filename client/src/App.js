@@ -54,7 +54,7 @@ function App() {
               <ViewDates />
             </Route>
 
-            <Route exact path={["/ViewDates"]} key={2}>
+            <Route exact path={["/ViewDates"]} >
               <ViewDates/>
             </Route>
 

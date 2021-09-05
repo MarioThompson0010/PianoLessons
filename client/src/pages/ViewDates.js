@@ -43,32 +43,32 @@ function ViewDates() {
     }, []);
 
     let stater = {};
-    const dateGetter = () => {
-        //event.preventDefault();
-        API.getDates()
-            .then(res => {
-                console.log(res);
+    // const dateGetter = () => {
+    //     //event.preventDefault();
+    //     API.getDates()
+    //         .then(res => {
+    //             console.log(res);
 
-                stater = {
-                    events: [
-                        {
-                            start: res.data[0].dateStart,         //moment().toDate(),
-                            end: res.data[0].dateEnd,
-                            // end: moment()
-                            //     .add(1, "days")
-                            //     .toDate(),
-                            title: res.data[0].title //"Some title"
-                        }
-                    ]
-                };
+    //             stater = {
+    //                 events: [
+    //                     {
+    //                         start: res.data[0].dateStart,         //moment().toDate(),
+    //                         end: res.data[0].dateEnd,
+    //                         // end: moment()
+    //                         //     .add(1, "days")
+    //                         //     .toDate(),
+    //                         title: res.data[0].title //"Some title"
+    //                     }
+    //                 ]
+    //             };
 
-                history.push({ pathname: "/CalendarAvailability", state: { detail: stater } });
+    //             history.push({ pathname: "/CalendarAvailability", state: { detail: stater } });
 
-            })
-            .catch(err => console.log(err));
-        // })
-        // .catch(err => console.log(err));
-    }
+    //         })
+    //         .catch(err => console.log(err));
+    //     // })
+    //     // .catch(err => console.log(err));
+    // }
 
     // try {
 
