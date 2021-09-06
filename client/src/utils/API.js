@@ -11,6 +11,9 @@ export default {
     getDates: function() {
         return axios.get('/api/dates/getDates');
     },
+    masterDates: function() {
+        return axios.get('../api/dates/datesMaster');
+    },
     createDate: function(date) {
         return axios.post('/api/dates/createDate', date );
     },

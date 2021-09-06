@@ -14,85 +14,47 @@ function ViewDates() {
     //   console.log(res);
     const localizer = momentLocalizer(moment);
     let history = useHistory();
-    const { id } = useParams(); // not currently being used, but good to keep in mind
+    const { id } = useParams(); // currently being used
     const [formObject, setFormObject] = useState({});
 
 
     useEffect(() => {
-        API.getDates()
-            .then(res => {
-                console.log(res);
+        if (id === "2") {
+            API.masterDates()
+                .then(res => {
+                    console.log(res);
+                    getCalendarAvailability(res, history, stater);
 
-                stater = {
-                    events: [
-                        {
-                            start: res.data[0].dateStart,         //moment().toDate(),
-                            end: res.data[0].dateEnd,
-                            // end: moment()
-                            //     .add(1, "days")
-                            //     .toDate(),
-                            title: res.data[0].title //"Some title"
-                        }
-                    ]
-                };
+                })
+                .catch(err => console.log(err))
+        }
+        else {
+            API.getDates()
+                .then(res => {
+                    console.log(res);
 
-                history.push({ pathname: "/CalendarAvailability", state: { detail: stater } });
+                    stater = {
+                        events: [
+                            {
+                                start: res.data[0].dateStart,         //moment().toDate(),
+                                end: res.data[0].dateEnd,
+                                // end: moment()
+                                //     .add(1, "days")
+                                //     .toDate(),
+                                title: res.data[0].title //"Some title"
+                            }
+                        ]
+                    };
 
-            })
-            .catch(err => console.log(err));
+                    history.push({ pathname: "/CalendarAvailability", state: { detail: stater } });
+
+                })
+                .catch(err => console.log(err));
+        }
+
     }, []);
 
     let stater = {};
-    // const dateGetter = () => {
-    //     //event.preventDefault();
-    //     API.getDates()
-    //         .then(res => {
-    //             console.log(res);
-
-    //             stater = {
-    //                 events: [
-    //                     {
-    //                         start: res.data[0].dateStart,         //moment().toDate(),
-    //                         end: res.data[0].dateEnd,
-    //                         // end: moment()
-    //                         //     .add(1, "days")
-    //                         //     .toDate(),
-    //                         title: res.data[0].title //"Some title"
-    //                     }
-    //                 ]
-    //             };
-
-    //             history.push({ pathname: "/CalendarAvailability", state: { detail: stater } });
-
-    //         })
-    //         .catch(err => console.log(err));
-    //     // })
-    //     // .catch(err => console.log(err));
-    // }
-
-    // try {
-
-    //     API.checkAuth()
-    //         .then(res => {
-
-    //             if (res.data === "good logon") {
-    //                 dateGetter();
-    //             }
-    //             else {
-    //                 history.push({ pathname: "/Login" });
-    //             }
-    //         })
-    //         .catch(err => {
-    //             console.log(err);
-    //             history.push({ pathname: "/Login" });
-    //         });
-
-    // }
-    // catch (err) {
-    //     console.log(err);
-    //     history.push({ pathname: "/Login" });
-    // };
-
 
 
 
@@ -124,4 +86,21 @@ function ViewDates() {
 
 }
 
+function getCalendarAvailability(res, history, stater) {
+
+    stater = {
+        events: [
+            {
+                start: res.data[0].dateStart,         //moment().toDate(),
+                end: res.data[0].dateEnd,
+                // end: moment()
+                //     .add(1, "days")
+                //     .toDate(),
+                title: res.data[0].title //"Some title"
+            }
+        ]
+    };
+
+    history.push({ pathname: "/CalendarAvailability", state: { detail: stater } });
+}
 export default ViewDates;
