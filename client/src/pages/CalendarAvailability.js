@@ -4,6 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 import CalendarComponent from "../components/CalendarComponent";
 import moment from 'moment';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
+import SessionTimeout from "../components/SessionTimeout";
 
 function CalendarAvailability(arg0, ...arg1) {
     //let [formObject, setFormObject];
@@ -370,7 +371,7 @@ function CalendarAvailability(arg0, ...arg1) {
                         // >
                         // </CalendarComponent>
                     }
-
+<SessionTimeout/>
                 </form>
             </div>
         );

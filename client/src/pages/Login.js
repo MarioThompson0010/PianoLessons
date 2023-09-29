@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import API from "../utils/API";
 import { useHistory } from "react-router-dom";
 import { CalendarComponent } from "../components/CalendarComponent";
+import SessionTimeout from "../components/SessionTimeout";
 
 
 function Login() {
@@ -86,7 +87,9 @@ function Login() {
                             name="password"
                             placeholder="password"
                             onChange={handleInputChange}
+                            
                         >
+
                         </input>
 
                     </div>
@@ -102,8 +105,10 @@ function Login() {
 
                     </div>
                 </div>
-            </form>
+            <SessionTimeout/>
 
+            </form>
+            
 
         </div>
 
