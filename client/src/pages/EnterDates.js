@@ -4,7 +4,6 @@ import { useHistory, useParams } from "react-router-dom";
 import CalendarComponent from "../components/CalendarComponent";
 import moment from 'moment';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
-//import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import DatePicker from "react-datepicker";
 
 function EnterDates() {
@@ -19,7 +18,6 @@ function EnterDates() {
     };
 
     useEffect(() => {
-        // loadBooks() // this would have loaded the books
 
         API.checkAuth()
             .then(res => {
@@ -27,9 +25,6 @@ function EnterDates() {
                 if (res.data !== "good logon") {
                     history.push({ pathname: "/Login" });
                 }
-                // else {
-                //     history.push({ pathname: "/Login" });
-                // }
             })
             .catch(err => {
                 console.log(err);
@@ -59,12 +54,6 @@ function EnterDates() {
                 console.log(res);
             })
             .catch(err => console.log(err));
-        // API.login(formObject)
-        //     .then(res => {
-        //         console.log(res);
-
-        //     })
-        //     .catch(err => console.log(err));
     };
 
 
@@ -83,7 +72,6 @@ function EnterDates() {
                             onChange={date => setStartDate(date)}
                             showTimeSelect
                             dateFormat="MMMM d, yyyy h:mm aa"
-                        // onSelect={handleDateSelect} //when day is clicked
                         />
 
                     </form>

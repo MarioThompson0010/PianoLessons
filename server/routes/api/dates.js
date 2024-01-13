@@ -11,16 +11,4 @@ router.route('/createDate').post(authDates.datesCreate);
 router.route('/datesMaster').get(authDates.datesMaster);
 
 
-// router.get('/getDates', isAuthenticated, (req, res) => {
-//     const test = req.user;
-//     db.CalendarModel.findAll({ include: [db.User] })
-//       .then((dbCalendar) => {
-//           res.json(dbCalendar);
-//       })
-//       .catch((err) => {
-//         res.status(401).json(err);
-//       });
-//   });
-
-
 module.exports = router;

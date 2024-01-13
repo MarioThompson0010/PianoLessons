@@ -19,7 +19,7 @@ function CalendarComponent(props) {
                 localizer={localizer}
                 defaultDate={new Date()}
                 defaultView="month"
-                events={props.events/*[0].events*/}
+                events={props.events}
                 style={{ height: props.height }}
             />
 <SessionTimeout/>

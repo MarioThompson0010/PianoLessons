@@ -10,31 +10,22 @@ function Logoff() {
     const [formObject, setFormObject] = useState({});
 
     useEffect(() => {
-        // loadBooks() // this would have loaded the books
     }, []);
 
-    //if (history) {
     API.logOff()
         .then(res => {
             history.push({ pathname: "/Login" /*, state: { detail: {} }*/ });
 
         })
         .catch(err => {
-            //setFormObject(err);
             history.push({ pathname: "/Login" , state: { detail: err }});
             console.log(err);
         })
 
-    // }
-    // else{
-    //     setFormObject(`<div>
-    //        Log in first
-    //     </div>`)
-    // }
 
     return (
         <div>
-            {/* {formObject} */}
+            {}
         </div>
     );
 

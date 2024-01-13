@@ -7,7 +7,6 @@ const isAuthenticated = require('../../config/middleware/isAuthenticated');
 
 router.use(isAuthenticated);
 router.route('/dologoff').post(authlogoff.logoff);
-//router.route('/createDate').post(authDates.datesCreate);
 
 
 

@@ -2,21 +2,12 @@ const db = require('../models');
 const isAuthenticated = require('../config/middleware/isAuthenticated');
 const passport = require('../config/passport');
 
-// const login = async (req, res) => {
-//   res.json(req.user);
-// };
 
 module.exports = {
   // this isn't used but I guess it could be
   signup:  (req, res) => {
 
-    // passport.authenticate('local', {
-
-    //   successRedirect: '/',
-    //   failureRedirect: '/login',
-
-    // })(req, res);
-
+    
 
     db.User.create(req.body)
       .then((user) => {
@@ -29,29 +20,6 @@ module.exports = {
   },
 
 
-  // passport.authenticate('local', {
-  //   successRedirect: '/',
-  //   failureRedirect: '/login',
-  // })(req, res);
-
-
-  // login: async (req, res) => {
-  //   passport.authenticate('local', {
-
-  //     successRedirect: '/',
-  //     failureRedirect: '/login',
-
-  //   })(req, res);
-
-  //   try{
-  //     const user = await res.json(req.user);
-  //     return res.json(user);
-  //   }
-  //   catch(err){
-  //     return err;
-  //   }
-    
-  // }
+  
 }
 
-//exports.login = login;

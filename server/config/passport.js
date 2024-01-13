@@ -32,12 +32,7 @@ passport.use(
         });
       }
 
-      // if (!isloginSuccessful) {
-      //   // Login failed
-      //   return done(null, false, {
-      //     message: 'Invalid user details',
-      //   });
-      // }
+      
 
       // Login success
       return done(null, user);

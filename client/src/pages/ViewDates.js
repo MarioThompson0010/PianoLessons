@@ -9,9 +9,6 @@ function ViewDates() {
 
 
 
-    // API.login(formObject)
-    //     .then(res => {
-    //   console.log(res);
     const localizer = momentLocalizer(moment);
     let history = useHistory();
     const { id } = useParams(); // currently being used
@@ -36,12 +33,9 @@ function ViewDates() {
                     stater = {
                         events: [
                             {
-                                start: res.data[0].dateStart,         //moment().toDate(),
+                                start: res.data[0].dateStart,         
                                 end: res.data[0].dateEnd,
-                                // end: moment()
-                                //     .add(1, "days")
-                                //     .toDate(),
-                                title: res.data[0].title //"Some title"
+                                title: res.data[0].title 
                             }
                         ]
                     };
@@ -63,19 +57,7 @@ function ViewDates() {
             <form>
 
 
-                {/* {
-                    stater.events !== undefined ?
-                    
-
-                    <CalendarComponent
-                    events={stater}
-                    height="100vh"
-                >
-                </CalendarComponent>
-                :
-                    setFormObject({})
-
-                } */}
+                {}
 
 
 
@@ -91,11 +73,8 @@ function getCalendarAvailability(res, history, stater) {
     stater = {
         events: [
             {
-                start: res.data[0].dateStart,         //moment().toDate(),
+                start: res.data[0].dateStart,         
                 end: res.data[0].dateEnd,
-                // end: moment()
-                //     .add(1, "days")
-                //     .toDate(),
                 title: res.data[0].title //"Some title"
             }
         ]

@@ -14,7 +14,6 @@ function Login() {
     const [formObject, setFormObject] = useState({});
 
     useEffect(() => {
-        // loadBooks() // this would have loaded the books
     }, []);
 
     function handleInputChange(event) {
@@ -31,12 +30,6 @@ function Login() {
                 API.getDates()
                     .then(res => {
                         console.log(res);
-                        // appointments[i].start =  
-        //                 let appointments = response.data;
-        
-        // for (let i = 0; i < appointments.length; i++) {
-        //   appointments[i].start =    moment.utc(appointments[i].start).toDate();
-        //   appointments[i].end = moment.utc(appointments[i].end).toDate();
                         const datearray = [];
                         for (let i = 0; i < res.data[0].CalendarModels.length; i++){
                             const objguy = {
@@ -57,7 +50,6 @@ function Login() {
                             ]
                         };
 
-                        //datearray.push(stater);
                         history.push({ pathname: "/CalendarAvailability", state: { detail: sendarray /*stater datearray*/ /*res.data[0].CalendarModels*/ } });
 
                     })

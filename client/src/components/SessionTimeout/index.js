@@ -120,17 +120,14 @@ const SessionTimeout = () => {
                 warningInactiveInterval.current = setInterval(() => {
                     const maxTime = 2;
                     const popTime = 1;
-// let timeString = sessionStorage.getItem('lastTimeStamp')
+
 const momtemp = moment(timeStamp);
 const difftemp = moment().diff(momtemp);
                     const diff = moment.duration(moment().diff(moment(timeString)));
                     const minPast = diff.minutes();
                     const leftSecond = 60 - diff.seconds();
 
-                    // if (minPast === popTime) {
-                    //     setSecond(leftSecond);
-                    //     setOpen(true);
-                    // }
+                    
 
                     if (minPast >= maxTime && isOpen === true) {
                         clearInterval(warningInactiveInterval.current);
@@ -152,7 +149,7 @@ const difftemp = moment().diff(momtemp);
 
 
 
-    // reset interval timer
+    
 
 
 
@@ -167,7 +164,6 @@ const difftemp = moment().diff(momtemp);
 
                 if (res.data === "good logon") {
                     isAuthenticated = true;
-                    // setIsAuthenticatedBool(true);
                 }
 
                 if (isAuthenticated === true) {
@@ -203,7 +199,7 @@ const difftemp = moment().diff(momtemp);
 
         return () => {
             clearTimeout(startTimerInterval.current);
-            //   resetTimer();
+            
         };
     }, [resetTimer, events, timeChecker]);
 

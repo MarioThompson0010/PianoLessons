@@ -18,21 +18,14 @@ module.exports = function (sequelize, DataTypes) {
             validate: { len: [1] }
             
         }
-        //   body: {
-        //     type: DataTypes.TEXT,
-        //     allowNull: false,
-        //     validate: { len: [1, 500] }
-        //   }
+       
     });
 
     CalendarModel.associate = function (models) {
         CalendarModel.belongsTo(models.User, {
             foreignKey: { allowNull: false }
         });
-        //   Post.belongsTo(models.Category, {
-        //     foreignKey: { allowNull: false }
-        //   });
-        //Post.hasMany(models.Comments, {});
+       
     };
 
     return CalendarModel;
