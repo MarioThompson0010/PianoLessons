@@ -19,42 +19,9 @@ const SessionTimeout = () => {
     const [events, setEvents] = useState(["click", "load", "scroll"]);
     const [second, setSecond] = useState(0);
     const [isOpen, setOpen] = useState(false);
-    // const [isAuthenticated, setIsAuthenticated] = useState("bad logon");
-
-    // useState(API.checkAuth().then( (res) => {
-
-    // const user1 = awa res.json(req.data);
-    // console.log(user1);
-    // return JSON.stringify(res.data) ;
-    //     console.log(res.data.login);
-    //     setIsAuthenticated(res.data.login);
-    // }));
-    // const [isAuthenticatedBool, setIsAuthenticatedBool] = useState(false);
+    
     let isAuthenticated = false;
-    //  API.checkAuth()
-    //  .then( (res) => {
-    //     console.log(res.data.login);
-
-    //  })
-    //  .catch(err => {
-    //     console.log(err);
-    //  });
-
-    // setIsAuthenticatedBool(isAuthenticated === "good logon" ? true : false);
-    // const {
-    //     authState: { isAuthenticated },
-    //     logout,
-    //   } = useAuth();
-
-    // let retlogon = API.checkAuth();
-    // const tmp2 = isAuthenticated.resolve();
-    // const temp5 = isAuthenticated.Prototype;
-    // const temp6 = isAuthenticated.PromiseResult;
-    // const temp1 = isAuthenticated["PromiseResult"];
-    // let {login : value} = [isAuthenticated];
-    // const tmp7 = Object.getPromiseresultOf(isAuthenticated);
-    // let [PromiseResult] = isAuthenticated;
-    // setIsAuthenticatedBool(isAuthenticated === "good logon");
+    
 
     let timeStamp;
     let warningInactiveInterval = useRef();
@@ -77,7 +44,6 @@ const SessionTimeout = () => {
 
                     timeStamp = moment();
                     sessionStorage.setItem('lastTimeStamp', timeStamp);
-                    // setIsAuthenticatedBool(true);
                 }
 
             })
@@ -110,7 +76,6 @@ const SessionTimeout = () => {
 
                     timeStamp = moment();
                     sessionStorage.setItem('lastTimeStamp', timeStamp);
-                    // setIsAuthenticatedBool(true);
                 }
 
 
