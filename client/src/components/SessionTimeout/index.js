@@ -83,7 +83,7 @@ const SessionTimeout = () => {
 
 
                 warningInactiveInterval.current = setInterval(() => {
-                    const maxTime = 2;
+                    const maxTime = 5;
                     const popTime = 1;
 
 const momtemp = moment(timeStamp);
